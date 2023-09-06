@@ -11,20 +11,20 @@ const cartItems = [
     title: "MERNスタックで本格的なSNSアプリ構築講座",
     price: "24000",
     img: "img/img2.png",
-    amount: 1,
   },
   {
+    amount: 1,
     id: 3,
     title: "GraphQLとApollo入門講座",
     price: "8900",
-    img: "https://uploda1.ysklog.net/uploda/9a99f8ca04.png",
+    img: "img/img3.png",
     amount: 1,
   },
   {
     id: 4,
     title: "Three.jsでモダンウェブサイト構築講座",
     price: "14000",
-    img: "https://uploda1.ysklog.net/uploda/59060b3cd3.png",
+    img: "img/img4.png",
     amount: 1,
   },
 ];
