@@ -11,13 +11,13 @@ function App() {
       <h3>hello redux</h3>
       <h3>カウンター:{counter}</h3>
       <button
-        onClick={() => dispatch(increment(10))}
+        onClick={() => dispatch(increment(Math.ceil(Math.random() * 10)))}
         style={{ border: "1px solid" }}
       >
         +
       </button>
       <button
-        onClick={() => dispatch(decrement(10))}
+        onClick={() => dispatch(decrement(Math.ceil(Math.random() * 10)))}
         style={{ border: "1px solid" }}
       >
         -
