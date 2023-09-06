@@ -1,9 +1,12 @@
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <h3>hello redux</h3>
+      <main>
+        <Navbar></Navbar>
+      </main>
     </>
   );
 }
