@@ -1,31 +1,23 @@
+import { useEffect } from "react";
 import "./App.css";
+import CartContainer from "./components/CartContainer";
+import Navbar from "./components/Navbar";
+import cartItems from "./cartItems";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement, login } from "./actions";
+import { caluculateTotals } from "./features/cart/CartSlice";
 
 function App() {
-  const counter = useSelector((state) => state.counter);
-  const isLogin = useSelector((state) => state.isLogin);
   const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.cart);
+  useEffect(() => {
+    dispatch(caluculateTotals());
+  }, [cartItems]);
   return (
     <>
-      <h3>hello redux</h3>
-      <h3>カウンター:{counter}</h3>
-      <button
-        onClick={() => dispatch(increment(Math.ceil(Math.random() * 10)))}
-        style={{ border: "1px solid" }}
-      >
-        +
-      </button>
-      <button
-        onClick={() => dispatch(decrement(Math.ceil(Math.random() * 10)))}
-        style={{ border: "1px solid" }}
-      >
-        -
-      </button>
-      <button onClick={() => dispatch(login())} style={{ border: "1px solid" }}>
-        login or logout
-      </button>
-      {isLogin ? <h3>ログイン成功</h3> : <h3>ログインしてください</h3>}
+      <main>
+        <Navbar />
+        <CartContainer />
+      </main>
     </>
   );
 }
