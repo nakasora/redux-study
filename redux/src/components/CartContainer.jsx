@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import cartItems from "../cartItems";
 import CartItem from "./CartItem";
 import { clearCart } from "../features/cart/CartSlice";
+import { openModal } from "../features/modal/ModalSlice";
 
 const CartContainer = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,6 @@ const CartContainer = () => {
     <section className="cart">
       <header>
         <h2>買い物かご</h2>
-        <h4 className="empty-cart">何も入ってません</h4>
       </header>
       <div>
         {cartItems.map((_item) => {
@@ -36,7 +36,7 @@ const CartContainer = () => {
         </div>
         <button
           className="button clear-btn"
-          onClick={() => dispatch(clearCart())}
+          onClick={() => dispatch(openModal())}
         >
           全削除
         </button>
