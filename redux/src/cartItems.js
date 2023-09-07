@@ -11,6 +11,7 @@ const cartItems = [
     title: "MERNスタックで本格的なSNSアプリ構築講座",
     price: "24000",
     img: "img/img2.png",
+    amount: 1,
   },
   {
     amount: 1,
