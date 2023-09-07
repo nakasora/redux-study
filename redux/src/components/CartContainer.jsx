@@ -1,14 +1,21 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import cartItems from "../cartItems";
 import CartItem from "./CartItem";
-import { clearCart } from "../features/cart/CartSlice";
 import { openModal } from "../features/modal/ModalSlice";
+import { useState } from "react";
+import FirstPageIcon from "@mui/icons-material/FirstPage";
+import LastPageIcon from "@mui/icons-material/LastPage";
 
 const CartContainer = () => {
+  const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
-
   const { amount, cartItems, total } = useSelector((state) => state.cart);
+
+  const ITEMS_PER_PAGE = 4;
+  const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
+  const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
+  const currentItems = cartItems.slice(indexOfFirstItem, indexOfLastItem);
+
   if (amount < 1) {
     return (
       <section className="cart">
@@ -25,10 +32,24 @@ const CartContainer = () => {
         <h2>買い物かご</h2>
       </header>
       <div>
-        {cartItems.map((_item) => {
+        {currentItems.map((_item) => {
           return <CartItem key={_item.id} {..._item} />;
         })}
       </div>
+      <FirstPageIcon />
+      <button
+        onClick={() => setCurrentPage(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
+        前のページへ
+      </button>
+      <button
+        onClick={() => setCurrentPage(currentPage + 1)}
+        disabled={currentPage === Math.ceil(cartItems.length / ITEMS_PER_PAGE)}
+      >
+        次のページ
+      </button>
+      <LastPageIcon />
       <footer>
         <hr />
         <div className="cart-total">

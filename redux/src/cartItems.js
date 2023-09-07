@@ -28,6 +28,48 @@ const cartItems = [
     img: "img/img4.png",
     amount: 1,
   },
+  {
+    id: 5,
+    title: "サピエンス全史",
+    price: "2000",
+    img: "img/img5.png",
+    amount: 1,
+  },
+  {
+    id: 6,
+    title: "希望の歴史",
+    price: "2300",
+    img: "img/img6.png",
+    amount: 1,
+  },
+  {
+    id: 7,
+    title: "影響力の武器",
+    price: "2700",
+    img: "img/img7.png",
+    amount: 1,
+  },
+  {
+    id: 8,
+    title: "運動脳",
+    price: "1100",
+    img: "img/img8.png",
+    amount: 1,
+  },
+  {
+    id: 9,
+    title: "正義の教室",
+    price: "1500",
+    img: "img/img9.png",
+    amount: 1,
+  },
+  {
+    id: 10,
+    title: "暇と退屈の倫理学",
+    price: "500",
+    img: "img/img10.png",
+    amount: 1,
+  },
 ];
 
 export default cartItems;
